@@ -26,6 +26,12 @@ function Right(props) {
           <DSTForm />
         </Container>
       );
+    default:
+      return (
+        <Container>
+          <DSTForm />
+        </Container>
+      );
   }
 }
 const Container = styled.div`

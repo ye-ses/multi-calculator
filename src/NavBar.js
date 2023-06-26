@@ -77,6 +77,18 @@ const NavMenu = styled.ul`
   align-items: center;
   gap: 3em;
   max-width: max-content;
+  @media (max-width: 920px) {
+    gap: 1em;
+    justify-self: right;
+    margin-right: 6em;
+  }
+  @media (max-width: 500px) {
+    font-size: 98%;
+    padding: 0.2em;
+    justify-self: right;
+    gap: 0.3em;
+    margin-right: 1em;
+  }
 `;
 const NavContainer = styled.div`
   position: sticky;
@@ -94,5 +106,13 @@ const NavContainer = styled.div`
   );
   box-shadow: -1px 2px 30px var(--primary-color),
     5px 1px 30px var(--primary-light);
+
+  @media (max-width: 920px) {
+    * {
+      font-size: 98%;
+      padding: 0.2em;
+      gap: 1em;
+    }
+  }
 `;
 export default NavBar;

@@ -37,3 +37,94 @@ p {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   color: rgba(24, 24, 24, 0.4);
 }
+
+@media (max-width:1050px) {
+  p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width:920px) {
+
+  * {
+    font-size: 97%;
+    padding: .2em;
+  }
+
+  .content-container {
+    grid-template-columns: 1fr;
+  }
+
+  .left {
+    display: flex;
+  }
+
+  .calculator {
+    max-width: fit-content;
+  }
+
+  .buttons-grid {
+    width: fit-content;
+  }
+
+  .display {
+    width: 17em;
+  }
+
+  .verticalFunctions {
+    margin-left: -0.05em;
+  }
+
+  .showHistory p {
+    line-height: 1;
+    background-color: var(--primary-light);
+    padding: .5em;
+    font-size: 1.1em;
+    margin-left: -6em;
+  }
+}
+
+@media (max-width:550px) {
+
+  * {
+    padding: .2em;
+  }
+
+  .left {
+    flex-direction: column;
+  }
+
+  .content-container {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator {
+    max-width: fit-content;
+  }
+
+  .buttons-grid {
+    width: fit-content;
+  }
+
+  .display {
+    width: 14.3em;
+  }
+
+  .showHistory p {
+    line-height: 1;
+    background-color: var(--primary-light);
+    padding: .5em;
+    margin-left: -6em;
+  }
+
+  .verticalFunctions {
+    margin-left: 0.02em;
+  }
+
+  .buttons-grid input {
+    width: 2.87em;
+    height: 2.5em;
+  }
+
+}

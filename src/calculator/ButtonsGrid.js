@@ -123,5 +123,11 @@ const Container = styled.div`
     1px -1px 1px rgba(46, 46, 46, 0.2), 2px 2px 10px rgba(46, 46, 46, 0.2);
   border-radius: 5px 0 10px 2px;
   padding: 1em;
+  @media (max-width: 550px) {
+    button {
+      width: 2.87em;
+      height: 2.5em;
+    }
+  }
 `;
 export default buttonsGrid;

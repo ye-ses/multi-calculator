@@ -23,5 +23,12 @@ const Container = styled.div`
     min-width: 0;
     min-height: 0;
   }
+  @media (max-width: 920px) {
+    grid-template-columns: 1fr;
+    * {
+      font-size: 95%;
+      padding: 0.2em;
+    }
+  }
 `;
 export default Content;
