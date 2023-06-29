@@ -1,25 +1,38 @@
 import styled from "styled-components";
-import { useState } from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 import { Label, FormInput } from "../inputs";
+import CurrencyConveter from "./CC";
 
 function CCForm() {
-  const [baseCurrency, setBaseCurrency] = useState("yes");
+  const CC = new CurrencyConveter();
+  useEffect(() => {}, []);
+  const [BaseSymbol, setBaseymbol] = useState("USD");
+
   return (
     <Container>
       <h1>Currency Converter</h1>
       <FormBox>
         <Label>Select currency to convert</Label>
-        <select>
-          <option value="yes">yes</option>
+        <select defaultValue={"USD"}>
+          {/* {symbols.map((symbol) => (
+            <option value={symbol} key={symbol}>
+              {symbol}
+            </option>
+          ))} */}
         </select>
-        <Label>Enter the amount to Convert</Label>
-        <FormInput width={"5em"} height={"1.2em"} type="number" />
+        <Label htmlFor="cur1">Enter the amount to Convert</Label>
+        <FormInput width={"5em"} height={"1.2em"} type="number" id="cur1" />
         <Label>Select currency to convert to</Label>
-        <select>
-          <option value="yes">yes</option>
+        <select defaultValue={"ZAR"}>
+          {/* {symbols.map((symbol) => (
+            <option value={symbol} key={symbol}>
+              {symbol}
+            </option>
+          ))} */}
         </select>
-        <Label>{`This is the equivalent amount in ${baseCurrency}`}</Label>
-        <FormInput width={"5em"} height={"1.2em"} type="number" />
+        <Label htmlFor="cur2">{`This is the equivalent amount in ${""}`}</Label>
+        <FormInput width={"5em"} height={"1.2em"} type="number" id="cur2" />
       </FormBox>
     </Container>
   );
@@ -69,4 +82,5 @@ const FormBox = styled.div`
     color: rgba(24, 24, 24, 0.7);
   }
 `;
+
 export default CCForm;

@@ -2,21 +2,31 @@ import styled from "styled-components";
 import ButtonsGrid from "./ButtonsGrid";
 import Screen from "./Screen";
 import { FaHistory } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Calculator from "./Calculator.class";
 
 function CalculatorWidget() {
-  let expression = "";
+  let textBox = "",
+    hBox = "",
+    expression = "",
+    calculator = new Calculator(expression, textBox);
+  const [history, setHistory] = useState([]);
+  useEffect(() => {
+    textBox = document.getElementById("screen");
+    hBox = document.getElementById("hBox");
+    calculator = new Calculator(expression, textBox);
+  }, []);
   const getButton = (button) => {
-    expression += button.value;
-    console.log(expression);
+    calculator.switcher(button);
+    if (button.id === "equal") {
+      hBox.value = calculator.history;
+    }
   };
-  const getScreen = (screen) => {
-    console.log(screen);
-  };
+
   return (
     <Container>
       <Device>
-        <Screen getScreen={getScreen} expression={expression} />
+        <Screen />
         <ButtonsGrid getButton={getButton} />
       </Device>
       <Words>
@@ -35,7 +45,7 @@ const Words = styled.div`
 `;
 const Device = styled.div`
   padding: 1em;
-  min-width: 16em;
+  max-width: fit-content;
   background-color: var(--primary-light);
   border-radius: 15px 0px 10px 0;
   display: flex;
@@ -50,5 +60,8 @@ const Container = styled.div`
   align-items: center;
   gap: 1.2em;
   width: 100%;
+  @media (max-width: 500px) {
+    flex-direction: column-reverse;
+  }
 `;
 export default CalculatorWidget;

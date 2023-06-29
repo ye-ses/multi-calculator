@@ -35,7 +35,7 @@ function Left() {
         </p>
         <br />
         <br />
-        <h1>
+        <h1 className="thank-you">
           Awesome, <em>thanks for the visit</em>
           {"     "}!!!
         </h1>
@@ -66,6 +66,17 @@ const Heading = styled.div`
       color: var(--primary-dark);
     }
   }
+  @media (max-width: 1008px) {
+    font-size: 98%;
+    padding: 0.2em;
+    justify-self: right;
+  }
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+    padding: 0.2em;
+    justify-self: right;
+  }
 `;
 const Container = styled.div`
   background: none;
@@ -74,5 +85,10 @@ const Container = styled.div`
   background-color: rgba(240, 240, 240, 0.5);
   border-radius: 0 1em 2em 0;
   padding: 1.2em;
+  @media (max-width: 1000px) {
+    .thank-you {
+      display: none;
+    }
+  }
 `;
 export default Left;

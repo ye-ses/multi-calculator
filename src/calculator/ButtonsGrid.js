@@ -35,21 +35,30 @@ function buttonsGrid(props) {
     <Container>
       <HorizontalComponents>
         {buttons.hFunctions.map((button) => (
-          <OperatorButton onClick={() => props.getButton(button)}>
+          <OperatorButton
+            key={button.value}
+            onClick={() => props.getButton(button)}
+          >
             {button.value}
           </OperatorButton>
         ))}
       </HorizontalComponents>
       <VerticalComponents>
         {buttons.vFunctions.map((button) => (
-          <OperatorButton onClick={() => props.getButton(button)}>
+          <OperatorButton
+            key={button.value}
+            onClick={() => props.getButton(button)}
+          >
             {button.value}
           </OperatorButton>
         ))}
       </VerticalComponents>
       <NumberGrid>
         {buttons.numbers.map((button) => (
-          <NumberButton onClick={() => props.getButton(button)}>
+          <NumberButton
+            key={button.value}
+            onClick={() => props.getButton(button)}
+          >
             {button.value}
           </NumberButton>
         ))}
@@ -66,7 +75,6 @@ const HorizontalComponents = styled.div`
   margin-bottom: 0.4em;
   > :first-child {
     background-color: var(--primary-color);
-
     font-weight: 700;
     font-style: bold;
   }
@@ -88,7 +96,6 @@ const HorizontalComponents = styled.div`
   }
 
   > :nth-child(5) {
-    margin-left: -0.2rem;
     grid-row-start: 2;
     grid-row-end: 3;
     grid-column-start: 4;
@@ -99,7 +106,7 @@ const VerticalComponents = styled.div`
   grid-template-rows: (5, minmax(0, 1fr));
   justify-content: center;
   align-items: center;
-  margin-left: -0.625em;
+  margin-left: 0.19em;
   gap: 5px;
 `;
 const NumberGrid = styled.div`
@@ -112,6 +119,7 @@ const NumberGrid = styled.div`
 const Container = styled.div`
   position: relative;
   display: grid;
+  min-width: 12.8em;
   grid-template-columns: 3fr 1fr;
   background: linear-gradient(
     40deg,
@@ -119,11 +127,16 @@ const Container = styled.div`
     10%,
     var(--primary-color)
   );
+  button {
+    width: 2.875rem;
+    height: 2.5rem;
+  }
   box-shadow: 1px -2px 2px var(--primary-color),
     1px -1px 1px rgba(46, 46, 46, 0.2), 2px 2px 10px rgba(46, 46, 46, 0.2);
   border-radius: 5px 0 10px 2px;
   padding: 1em;
   @media (max-width: 550px) {
+    width: fit-content;
     button {
       width: 2.87em;
       height: 2.5em;

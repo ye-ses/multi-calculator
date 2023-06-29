@@ -8,6 +8,10 @@ function Content(props) {
     <Container>
       <Left />
       <Right calculator={props.calculator} />
+      <h1 className="thanks">
+        Awesome, <em>thanks for the visit</em>
+        {"     "}!!!
+      </h1>
     </Container>
   );
 }
@@ -23,11 +27,16 @@ const Container = styled.div`
     min-width: 0;
     min-height: 0;
   }
-  @media (max-width: 920px) {
+  .thanks {
+    display: none;
+  }
+  @media (max-width: 1000px) {
     grid-template-columns: 1fr;
     * {
-      font-size: 95%;
       padding: 0.2em;
+    }
+    .thanks {
+      display: block;
     }
   }
 `;

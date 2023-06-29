@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CalculatorScreen = styled.input`
-  width: 100%;
+  width: 95%;
   border: none;
   border-radius: 0.1875em;
   height: 5em;

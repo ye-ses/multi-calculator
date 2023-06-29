@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const NumberButton = styled.button`
-  width: 2.875rem;
-  height: 2.5rem;
   border-radius: 0.5em;
   background-color: white;
   border: none;
@@ -16,7 +14,6 @@ export const NumberButton = styled.button`
 export const OperatorButton = styled(NumberButton)`
   background-color: wheat;
   color: white;
-  height: 2.5em;
 `;
 export const ActionButton = styled.button`
   width: max-content;

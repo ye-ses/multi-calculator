@@ -57,6 +57,7 @@ const LogoBox = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  max-height: inherit;
   padding: 0 3em 0 3em;
   color: aliceblue;
   font-weight: 900;
@@ -66,8 +67,26 @@ const LogoBox = styled.div`
     font-size: 1.3em;
   }
   span {
+    display: inline;
     margin-left: 1em;
     font-size: 1.1em;
+  }
+  @media (max-width: 500px) {
+    font-size: 95%;
+    padding: 0.1em;
+    justify-self: right;
+  }
+  @media (max-width: 250px) {
+    font-size: 90%;
+    justify-self: right;
+    gap: 0.3em;
+    max-height: 4rem;
+    span {
+      margin-left: 0;
+    }
+    > * {
+      flex-shrink: 1;
+    }
   }
 `;
 const NavMenu = styled.ul`
@@ -77,9 +96,14 @@ const NavMenu = styled.ul`
   align-items: center;
   gap: 3em;
   max-width: max-content;
+  > * {
+    flex-shrink: 1;
+  }
   @media (max-width: 920px) {
     gap: 1em;
     justify-self: right;
+    justify-content: center;
+    align-items: center;
     margin-right: 6em;
   }
   @media (max-width: 500px) {
@@ -87,11 +111,17 @@ const NavMenu = styled.ul`
     padding: 0.2em;
     justify-self: right;
     gap: 0.3em;
-    margin-right: 1em;
+    margin-right: 0.5em;
+  }
+  @media (max-width: 400px) {
+    font-size: 96%;
+    justify-self: right;
+    gap: 0.3em;
+    margin-right: 0;
   }
 `;
 const NavContainer = styled.div`
-  position: sticky;
+  position: fixed;
   width: 100%;
   height: 4rem;
   display: grid;
@@ -106,13 +136,5 @@ const NavContainer = styled.div`
   );
   box-shadow: -1px 2px 30px var(--primary-color),
     5px 1px 30px var(--primary-light);
-
-  @media (max-width: 920px) {
-    * {
-      font-size: 98%;
-      padding: 0.2em;
-      gap: 1em;
-    }
-  }
 `;
 export default NavBar;

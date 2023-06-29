@@ -1,33 +1,34 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaHistory } from "react-icons/fa";
 import { CalculatorScreen } from "../inputs";
 
 function Screen(props) {
-  const [showHistory, setShowHistory] = useState(true);
-  const [expression, setExpression] = useState(true);
-
+  const [showHistory, setShowHistory] = useState(false);
+  const [history, setHistory] = useState([]);
   return (
     <Display>
       <HistoryContainer>
         <HistoryIcon>
-          <FaHistory onClick={() => setShowHistory(!showHistory)} />
+          <FaHistory
+            onClick={() => {
+              setShowHistory(!showHistory);
+            }}
+          />
         </HistoryIcon>
-        {showHistory && <HistoryBox />}
+        {showHistory && <HistoryBox id="hBox" />}
       </HistoryContainer>
-      <CalculatorScreen
-        value={expression}
-        type="text"
-        name="calcDisplay"
-        disabled
-        onChange={() => props.getScreen}
-      />
+      <CalculatorScreen type="text" name="calcDisplay" disabled id="screen" />
     </Display>
   );
 }
 const Display = styled.div`
   position: relative;
   padding: 0;
+  width: 100%;
+  @media (max-width: 550px) {
+    width: 14.1em;
+  }
 `;
 const HistoryContainer = styled.div`
   position: absolute;
@@ -37,7 +38,7 @@ const HistoryContainer = styled.div`
   left: 0;
   cursor: pointer;
 `;
-const HistoryBox = styled.div`
+const HistoryBox = styled.p`
   margin-left: -1em;
   margin-top: 1rem;
   height: fit-content;

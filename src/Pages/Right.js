@@ -29,7 +29,7 @@ function Right(props) {
     default:
       return (
         <Container>
-          <DSTForm />
+          <CalculatorWidget />
         </Container>
       );
   }

@@ -66,7 +66,9 @@ function DSTForm() {
           defaultValue={"mm"}
         >
           {units.map((unit) => (
-            <option value={unit}>{unit}</option>
+            <option value={unit} key={unit}>
+              {unit}
+            </option>
           ))}
         </select>
       </FormBox>
