@@ -5,11 +5,11 @@ function About() {
   const descriptions = [
     {
       calculator: `Tiny calculator `,
-      description: `What you see here is just a mirror of another calculator done with a vue library.
-       You can follow https://ye-ses.github.io/tiny-calculator/ to see it. 
+      description: `What you see here is just a mirror of another calculator done with a vue library. 
       It calculates all your basic maths problem provided you entered 
-      the correct expression, it doesn't correct everything. 
-      It also shows the history of the past 5 expressions and their answers.`,
+      the correct expression, it doesn't correct everything.
+      You can get there through this `,
+      link: ` https://ye-ses.github.io/tiny-calculator/ `,
     },
     {
       calculator: "Distance Converter",
@@ -18,6 +18,7 @@ function About() {
       The difference between this and other converters out there is that 
       it gives all conversions at once. I just thought it would be a hussle to 
       select the reqired conversion units every time for a similar distance. 
+     
        `,
     },
   ];
@@ -27,16 +28,20 @@ function About() {
       {descriptions.map((desc) => (
         <Card key={desc}>
           <h1>{desc.calculator}</h1>
-          <br />
           <p>{desc.description}</p>
+          {desc.link && (
+            <a href={desc.link} target="_blank">
+              link.
+            </a>
+          )}
         </Card>
       ))}
     </Container>
   );
 }
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-auto-flow: dense;
   align-items: center;
   gap: 1em;
   width: inherit;
@@ -47,7 +52,6 @@ const Container = styled.div`
 `;
 const Card = styled.div`
   display: grid;
-  grid-auto-flow: dense;
   background-color: whitesmoke;
   justify-content: center;
   align-items: center;
@@ -59,8 +63,8 @@ const Card = styled.div`
     color: var(--secondary-color);
   }
   p {
-    font-size: 1.2em;
-    line-height: 1.6;
+    font-size: 1.1em;
+    line-height: 1.3;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   }
   span {

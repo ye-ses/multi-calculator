@@ -109,6 +109,18 @@ class Calculator {
     this.bracket = !this.bracket;
   }
   evaluate() {
+    // let key = this.textBox.value.slice(-1);
+    // while (
+    //   key === "+" &&
+    //   key === "-" &&
+    //   key === "/" &&
+    //   key === "*" &&
+    //   key === "(" &&
+    //   key === "."
+    // ) {
+    //   this.delete();
+    //   key = this.textBox.value.slice(-1);
+    // }
     const expression = this.textBox.value;
     this.clear();
     const initAnswer = evaluate(expression);

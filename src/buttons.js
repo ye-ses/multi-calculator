@@ -13,7 +13,7 @@ export const NumberButton = styled.button`
 `;
 export const OperatorButton = styled(NumberButton)`
   background-color: wheat;
-  color: white;
+  color: rgba(52, 22, 33, 0.5);
 `;
 export const ActionButton = styled.button`
   width: max-content;

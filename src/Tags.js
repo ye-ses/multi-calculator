@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Anchor = styled.a`
   outline: none;
+  text-decoration: none;
   background-color: none;
   width: max-content;
   color: white;

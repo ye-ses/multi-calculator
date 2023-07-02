@@ -4,22 +4,22 @@ import Screen from "./Screen";
 import { FaHistory } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import Calculator from "./Calculator.class";
+import History from "./History";
 
 function CalculatorWidget() {
   let textBox = "",
     hBox = "",
-    expression = "",
-    calculator = new Calculator(expression, textBox);
-  const [history, setHistory] = useState([]);
+    expression = "";
+  let calculator = new Calculator(expression, textBox);
+  let history = ["ergver", "gsdegv"];
   useEffect(() => {
     textBox = document.getElementById("screen");
-    hBox = document.getElementById("hBox");
     calculator = new Calculator(expression, textBox);
   }, []);
   const getButton = (button) => {
     calculator.switcher(button);
     if (button.id === "equal") {
-      hBox.value = calculator.history;
+      history = calculator.history;
     }
   };
 
@@ -27,6 +27,7 @@ function CalculatorWidget() {
     <Container>
       <Device>
         <Screen />
+        {/* <History calculator={history} /> */}
         <ButtonsGrid getButton={getButton} />
       </Device>
       <Words>
@@ -44,6 +45,7 @@ const Words = styled.div`
   width: 30ch;
 `;
 const Device = styled.div`
+  position: relative;
   padding: 1em;
   max-width: fit-content;
   background-color: var(--primary-light);
