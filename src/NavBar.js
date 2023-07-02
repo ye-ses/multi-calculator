@@ -7,35 +7,37 @@ function NavBar(props) {
   const [dropDown, setDropDown] = useState(false);
   return (
     <NavContainer>
-      <LogoBox>
+      <LogoBox className="logo">
         <div>
           <i>Multi</i>
-          -calulator
+          -calculator
           <span>
             <FaCalculator />
           </span>
         </div>
       </LogoBox>
       <NavMenu>
-        <Anchor>About</Anchor>
+        <Anchor onClick={() => props.calculator("about")}>About</Anchor>
         <Anchor onMouseEnter={() => setDropDown(!dropDown)}>
           Calculators
           <FaCaretDown />
           {dropDown && (
             <CalculatorsDrop onMouseLeave={() => setDropDown(!dropDown)}>
               <TextTag onClick={() => props.calculator("calculator")}>
-                calculator
+                Calculator
               </TextTag>
-              <TextTag onClick={() => props.calculator("currencyConvertor")}>
-                currency-converter
-              </TextTag>
+              {/* <TextTag onClick={() => props.calculator("currencyConvertor")}>
+                Currency Converter
+              </TextTag> */}
               <TextTag onClick={() => props.calculator("DST")}>
-                distance,speed,time
+                Distance Converter
               </TextTag>
             </CalculatorsDrop>
           )}
         </Anchor>
-        <Anchor>Contact</Anchor>
+        <Anchor href="https://ye-ses.github.io/my-portfolio/" target="_blank">
+          Contact
+        </Anchor>
       </NavMenu>
     </NavContainer>
   );
@@ -56,6 +58,7 @@ const LogoBox = styled.div`
   border-radius: 0 0.5em 0.9em 0;
   display: flex;
   justify-content: space-around;
+  justify-self: left;
   align-items: center;
   max-height: inherit;
   padding: 0 3em 0 3em;
@@ -73,7 +76,6 @@ const LogoBox = styled.div`
   }
   @media (max-width: 500px) {
     font-size: 95%;
-    padding: 0.1em;
     justify-self: right;
   }
   @media (max-width: 250px) {
@@ -81,11 +83,18 @@ const LogoBox = styled.div`
     justify-self: right;
     gap: 0.3em;
     max-height: 4rem;
-    span {
-      margin-left: 0;
-    }
     > * {
       flex-shrink: 1;
+    }
+  }
+  @media (max-width: 320px) {
+    .logo {
+      i {
+        font-size: 60%;
+      }
+      span {
+        font-size: 60%;
+      }
     }
   }
 `;
@@ -93,30 +102,28 @@ const NavMenu = styled.ul`
   list-style: none;
   display: flex;
   justify-content: space-around;
+  justify-self: center;
   align-items: center;
   gap: 3em;
-  max-width: max-content;
-  > * {
-    flex-shrink: 1;
-  }
+  margin-right: 10em;
+  max-width: fit-content;
   @media (max-width: 920px) {
     gap: 1em;
-    justify-self: right;
+    justify-self: center;
     justify-content: center;
     align-items: center;
     margin-right: 6em;
   }
   @media (max-width: 500px) {
-    font-size: 98%;
-    padding: 0.2em;
-    justify-self: right;
-    gap: 0.3em;
-    margin-right: 0.5em;
-  }
-  @media (max-width: 400px) {
     font-size: 96%;
-    justify-self: right;
+    padding: 0.2em;
     gap: 0.3em;
+    margin-right: 2em;
+  }
+  @media (max-width: 450px) {
+    font-size: 94%;
+    gap: 0.3em;
+    justify-self: left;
     margin-right: 0;
   }
 `;
@@ -136,5 +143,6 @@ const NavContainer = styled.div`
   );
   box-shadow: -1px 2px 30px var(--primary-color),
     5px 1px 30px var(--primary-light);
+  z-index: 99;
 `;
 export default NavBar;

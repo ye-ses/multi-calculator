@@ -2,8 +2,9 @@ import styled from "styled-components";
 import CalculatorWidget from "../calculator/CalculatorWidget";
 import Form from "../currencyConveter/CCForm";
 import { useState } from "react";
-import DSTForm from "../dst/DSTForm";
+import DistanceForm from "../dst/DistanceForm";
 import CCForm from "../currencyConveter/CCForm";
+import About from "./About";
 
 function Right(props) {
   const calculator = props.calculator;
@@ -23,7 +24,13 @@ function Right(props) {
     case "DST":
       return (
         <Container>
-          <DSTForm />
+          <DistanceForm />
+        </Container>
+      );
+    case "about":
+      return (
+        <Container>
+          <About />
         </Container>
       );
     default:

@@ -30,13 +30,19 @@ const Container = styled.div`
   .thanks {
     display: none;
   }
+  @media (max-width: 1050px) {
+    p {
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+  }
   @media (max-width: 1000px) {
     grid-template-columns: 1fr;
-    * {
-      padding: 0.2em;
-    }
     .thanks {
       display: block;
+    }
+    > * {
+      font-size: 97%;
     }
   }
 `;

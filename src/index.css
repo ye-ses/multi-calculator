@@ -38,7 +38,7 @@ p {
   color: rgba(24, 24, 24, 0.4);
 }
 
-@media (max-width:1050px) {
+/* @media (max-width:1050px) {
   p {
     font-size: 0.9rem;
     line-height: 1.4;
@@ -82,5 +82,6 @@ p {
     padding: .5em;
     font-size: 1.1em;
     margin-left: -6em;
-  }
+  } 
 }
+*/

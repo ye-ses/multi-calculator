@@ -16,7 +16,11 @@ function Screen(props) {
             }}
           />
         </HistoryIcon>
-        {showHistory && <HistoryBox id="hBox" />}
+        {showHistory && (
+          <HistoryBox id="hBox">
+            <p>danldnkjdbB</p>
+          </HistoryBox>
+        )}
       </HistoryContainer>
       <CalculatorScreen type="text" name="calcDisplay" disabled id="screen" />
     </Display>

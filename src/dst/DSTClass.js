@@ -1,4 +1,10 @@
+/*
+ this class provides the calculations for the distance converter,  
+ 
+*/
 export default class DSTClass {
+  //the first part is the calculations for the distance converter
+  //the following constructor is specific for the distance converter
   constructor(distance, unit) {
     this.distance = distance;
     this.unit = unit;
