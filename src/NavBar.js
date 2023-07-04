@@ -17,19 +17,41 @@ function NavBar(props) {
         </div>
       </LogoBox>
       <NavMenu>
-        <Anchor onClick={() => props.calculator("about")}>About</Anchor>
+        <Anchor
+          href="#right"
+          onClick={() => {
+            props.calculator("about");
+          }}
+        >
+          About
+        </Anchor>
         <Anchor onMouseEnter={() => setDropDown(!dropDown)}>
           Calculators
           <FaCaretDown />
           {dropDown && (
             <CalculatorsDrop onMouseLeave={() => setDropDown(!dropDown)}>
-              <TextTag onClick={() => props.calculator("calculator")}>
+              <TextTag
+                onClick={() => {
+                  props.calculator("calculator");
+                  document.getElementById("right").scrollIntoView();
+                }}
+              >
                 Calculator
               </TextTag>
-              <TextTag onClick={() => props.calculator("currencyConvertor")}>
+              <TextTag
+                onClick={() => {
+                  props.calculator("currencyConvertor");
+                  document.getElementById("right").scrollIntoView();
+                }}
+              >
                 Currency Converter
               </TextTag>
-              <TextTag onClick={() => props.calculator("DST")}>
+              <TextTag
+                onClick={() => {
+                  props.calculator("DST");
+                  document.getElementById("right").scrollIntoView();
+                }}
+              >
                 Distance Converter
               </TextTag>
             </CalculatorsDrop>
@@ -76,25 +98,41 @@ const LogoBox = styled.div`
   }
   @media (max-width: 500px) {
     font-size: 95%;
-    justify-self: right;
+    justify-self: left;
+  }
+
+  @media (max-width: 400px) {
+    justify-self: left;
+    gap: 0.3em;
+    max-height: 4rem;
+    font-size: 60%;
+    width: min-content;
+    .logo {
+      i {
+        font-size: 70%;
+      }
+      span {
+        font-size: 70%;
+      }
+    }
   }
   @media (max-width: 250px) {
-    font-size: 90%;
     justify-self: right;
     gap: 0.3em;
     max-height: 4rem;
+    font-size: 60%;
     > * {
       flex-shrink: 1;
     }
-  }
-  @media (max-width: 320px) {
-    .logo {
-      i {
-        font-size: 60%;
-      }
-      span {
-        font-size: 60%;
-      }
+    i {
+      margin-top: -0.01em;
+      padding: 0;
+      font-size: 50%;
+    }
+    span {
+      display: inline;
+      margin-left: 1em;
+      font-size: 1.1em;
     }
   }
 `;
@@ -121,10 +159,17 @@ const NavMenu = styled.ul`
     margin-right: 2em;
   }
   @media (max-width: 450px) {
-    font-size: 94%;
-    gap: 0.3em;
+    font-size: 96%;
+    gap: 0.8em;
     justify-self: left;
-    margin-right: 0;
+    margin-right: 0.8em;
+    margin-left: 0.8em;
+  }
+  @media (max-width: 350px) {
+    font-size: 73%;
+    gap: 0.6em;
+    justify-self: left;
+    margin-right: 0.8em;
   }
 `;
 const NavContainer = styled.div`

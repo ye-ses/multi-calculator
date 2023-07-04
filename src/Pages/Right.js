@@ -11,32 +11,36 @@ function Right(props) {
   switch (calculator) {
     case "calculator":
       return (
-        <Container>
+        <Container id="right">
           <CalculatorWidget />
         </Container>
       );
     case "currencyConvertor":
       return (
-        <Container>
+        <Container id="right">
           <CCForm />
         </Container>
       );
     case "DST":
       return (
-        <Container>
+        <Container id="right">
           <DistanceForm />
         </Container>
       );
     case "about":
       return (
-        <Container>
+        <Container id="right">
           <About />
         </Container>
       );
     default:
       return (
-        <Container>
-          <CalculatorWidget />
+        <Container id="right">
+          <p>
+            {" "}
+            You are the sum total of everything you've ever seen, heard, eaten,
+            smelled, been told, forgot - it's all there
+          </p>
         </Container>
       );
   }

@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { FaCalculator, FaGrinWink, FaHistory } from "react-icons/fa";
 
 function About() {
   const descriptions = [
     {
+      key: 1,
       calculator: `Tiny calculator `,
       description: `What you see here is just a mirror of another calculator done with a vue library. 
       It calculates all your basic maths problem provided you entered 
@@ -12,13 +12,24 @@ function About() {
       link: ` https://ye-ses.github.io/tiny-calculator/ `,
     },
     {
+      key: 2,
+      calculator: "Currency Converter",
+      description: `The converter gives users vasts amounts of currencies to choose from
+      and to convert to.
+      This converter gives you the rate of conversion depending on the choosen options,
+      it also gives you an idea of how to convert the given currencies. 
+      Lastly it will give you the converted amount 
+      provided that you gave in the amount to convert.
+       `,
+    },
+    {
+      key: 3,
       calculator: "Distance Converter",
       description: `This converts the given distance unit to 
       'mm,cm,inch,feet,yard, m, km, miles'depending on the input,
       The difference between this and other converters out there is that 
       it gives all conversions at once. I just thought it would be a hussle to 
-      select the reqired conversion units every time for a similar distance. 
-     
+      select the reqired conversion units every time for a similar distance.  
        `,
     },
   ];
@@ -26,7 +37,7 @@ function About() {
     <Container>
       <h1>The following are the descriptions of the calculators available</h1>
       {descriptions.map((desc) => (
-        <Card key={desc}>
+        <Card key={desc.key}>
           <h1>{desc.calculator}</h1>
           <p>{desc.description}</p>
           {desc.link && (
@@ -36,6 +47,9 @@ function About() {
           )}
         </Card>
       ))}
+      <Card>
+        <h1>Happy learning!!!</h1>
+      </Card>
     </Container>
   );
 }

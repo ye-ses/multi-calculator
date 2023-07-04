@@ -17,6 +17,7 @@ export const Anchor = styled.a`
 `;
 export const TextTag = styled.p`
   width: 100%;
+  text-decoration: none;
   color: rgba(255, 254, 254, 0.889);
   &:hover {
     color: var(--secondary-color);

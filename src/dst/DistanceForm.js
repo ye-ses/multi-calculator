@@ -166,12 +166,23 @@ const FormBox = styled.div`
     border-radius: 0 0.3em 0.3em 0;
     color: rgba(24, 24, 24, 0.7);
   }
+  @media (max-width: 500px) {
+    font-size: 90%;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 const Answers = styled(FormBox)`
   flex-direction: column;
   align-self: flex-start;
-  min-width: 20em;
   padding-left: 3em;
   line-height: 0;
   background-color: rgba(73, 122, 185, 0.4);
+
+  @media (max-width: 500px) {
+    font-size: 70%;
+  }
+  @media (max-width: 300px) {
+    font-size: 40%;
+  }
 `;

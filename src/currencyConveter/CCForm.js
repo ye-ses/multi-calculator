@@ -106,8 +106,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: none;
   gap: 1em;
-  width: 70%;
+  width: 90%;
   border: 2px solid var(--primary-light);
   padding: 1.5em;
   border-radius: 0.8em;
@@ -115,10 +116,11 @@ const Container = styled.div`
 `;
 const FormBox = styled.div`
   border-radius: 0.3em;
-  display: grid;
-  width: 90%;
-  grid-template-columns: 1fr 0.1fr;
+  display: flex;
+  flex-direction: column;
   gap: 0.5em;
+  width: 98%;
+  overflow: none;
   padding: 0.5em 2em 0.3em 0.5em;
   background: linear-gradient(20deg, plum, 60%, white, pink);
   h1 {
@@ -133,12 +135,12 @@ const FormBox = styled.div`
   }
   p {
     color: var(--secondary-color);
-    width: 60ch;
   }
   select {
     margin-left: 0.3em;
     border-radius: 0.5em 0.5em 0.5em 0.5em;
     padding: 0 0.3em 0 0.3em;
+    width: 6em;
     color: rgba(24, 24, 24, 0.6);
     option {
       width: 3em;
@@ -153,6 +155,26 @@ const FormBox = styled.div`
     margin-left: 0.3em;
     border-radius: 0 0.3em 0.3em 0;
     color: rgba(24, 24, 24, 0.6);
+  }
+  > * {
+    flex-shrink: 1;
+  }
+  @media (max-width: 920px) {
+    p {
+      font-size: 96%;
+    }
+    input {
+      font-size: 90%;
+    }
+  }
+
+  @media (max-width: 330px) {
+    P {
+      font-size: 80%;
+    }
+    select {
+      width: 4em;
+    }
   }
 `;
 
