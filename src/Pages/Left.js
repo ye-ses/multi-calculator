@@ -29,7 +29,11 @@ function Left() {
       <div className="words">
         <p>
           To Access the calculators,
-          <b>hover the calculator dropdown and then select your liking.</b>
+          <br />
+          <b>
+            press, hover or click the calculators dropdown and then select your
+            choice.
+          </b>
           <br />
           Your calculator will then appear on the right section of this page.
         </p>

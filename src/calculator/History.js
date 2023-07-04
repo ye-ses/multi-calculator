@@ -15,7 +15,6 @@ function History(props) {
       </HistoryIcon>
       {showHistory && (
         <HistoryBox id="hBox">
-          {console.log(props.history)}
           {/* {props.history.map((expression) => {
             <p>{expression}</p>;
           })} */}
