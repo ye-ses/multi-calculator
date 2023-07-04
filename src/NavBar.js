@@ -26,9 +26,9 @@ function NavBar(props) {
               <TextTag onClick={() => props.calculator("calculator")}>
                 Calculator
               </TextTag>
-              {/* <TextTag onClick={() => props.calculator("currencyConvertor")}>
+              <TextTag onClick={() => props.calculator("currencyConvertor")}>
                 Currency Converter
-              </TextTag> */}
+              </TextTag>
               <TextTag onClick={() => props.calculator("DST")}>
                 Distance Converter
               </TextTag>

@@ -25,11 +25,10 @@ h1 {
 h2 {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: 300;
-  word-break: none;
+  word-break: none; 
 }
 
-p {
-  max-width: 40ch;
+p { 
   line-height: 1.6;
   text-align: start;
   margin-top: 0;
