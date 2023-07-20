@@ -11,10 +11,30 @@ class Calculator {
     this.answer = "0";
     this.history = [];
   }
-
+  reset() {
+    this.bracket = true;
+    this.period = true;
+    this.showHistory = false;
+    this.answerOn = false;
+    this.answer = "0";
+  }
+  looseOperator() {
+    const key = this.textBox.value.slice(-1);
+    if (
+      key == "+" ||
+      key == "-" ||
+      key == "/" ||
+      key == "(" ||
+      key == "*" ||
+      key == ""
+    ) {
+      return true;
+    }
+    return false;
+  }
   clear() {
     this.textBox.value = "";
-    this.period = true;
+    this.reset();
   }
   delete() {
     this.textBox.value = this.textBox.value.substring(
@@ -58,8 +78,10 @@ class Calculator {
   }
   writeBrackets() {
     const key = this.textBox.value.slice(-1);
-    this.textBox.value += this.bracket ? "*(" : ")";
-    this.bracket = !this.bracket;
+    if (!this.looseOperator()) {
+      this.textBox.value += this.bracket ? "*(" : ")";
+      this.bracket = !this.bracket;
+    }
   }
   writeOperator(button) {
     const key = this.textBox.value.slice(-1);
@@ -75,6 +97,7 @@ class Calculator {
           key !== "+" &&
           key !== "-" &&
           key !== "/" &&
+          key !== "(" &&
           key !== "*" &&
           key !== ""
         ) {
@@ -109,18 +132,10 @@ class Calculator {
     this.bracket = !this.bracket;
   }
   evaluate() {
-    // let key = this.textBox.value.slice(-1);
-    // while (
-    //   key === "+" &&
-    //   key === "-" &&
-    //   key === "/" &&
-    //   key === "*" &&
-    //   key === "(" &&
-    //   key === "."
-    // ) {
-    //   this.delete();
-    //   key = this.textBox.value.slice(-1);
-    // }
+    const key = this.textBox.value.slice(-1);
+    if (this.looseOperator()) {
+      return;
+    }
     const expression = this.textBox.value;
     this.clear();
     const initAnswer = evaluate(expression);
