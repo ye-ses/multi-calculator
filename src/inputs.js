@@ -25,7 +25,7 @@ export const FormInput = styled.input`
   font-size: 0.8em;
   background-color: white;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  color: rgba(24, 24, 24, 0.4);
+  color: var(--text-grey);
   border: 2px solid var(--secondary-color);
   border-radius: 0.5em;
   outline: none;

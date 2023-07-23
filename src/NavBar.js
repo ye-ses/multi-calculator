@@ -48,11 +48,19 @@ function NavBar(props) {
               </TextTag>
               <TextTag
                 onClick={() => {
-                  props.calculator("DST");
+                  props.calculator("Distance");
                   document.getElementById("right").scrollIntoView();
                 }}
               >
                 Distance Converter
+              </TextTag>
+              <TextTag
+                onClick={() => {
+                  props.calculator("DST");
+                  document.getElementById("right").scrollIntoView();
+                }}
+              >
+                Speed Distance Time
               </TextTag>
             </CalculatorsDrop>
           )}

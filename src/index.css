@@ -4,6 +4,10 @@
   --primary-dark: #FF8011;
   --secondary-color: #7D6EFF;
   --secondary-dark: #26199C;
+
+  --text-grey:rgba(24, 24, 24, 0.4);
+  --text-dark:rgba(24, 24, 24, 0.8);
+  --border-grey: rgba(24, 24, 24, 0.55);
 }
 
 body {

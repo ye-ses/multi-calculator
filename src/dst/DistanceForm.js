@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { FormInput, Label } from "../inputs";
-import DSTClass from "./DSTClass";
+import DistanceClass from "./DistanceClass";
 
 function DSTForm() {
   const [distance, setDistance] = useState("0");
@@ -17,7 +17,7 @@ function DSTForm() {
     0,
     0,
   ]);
-  let converter = new DSTClass(distance, unit);
+  let converter = new DistanceClass(distance, unit);
   return (
     <Container>
       <h1>Distance unit converter</h1>

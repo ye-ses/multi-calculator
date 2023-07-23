@@ -2,7 +2,7 @@
  this class provides the calculations for the distance converter,  
  
 */
-export default class DSTClass {
+export default class DistanceClass {
   //the first part is the calculations for the distance converter
   //the following constructor is specific for the distance converter
   constructor(distance, unit) {

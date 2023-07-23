@@ -113,6 +113,17 @@ const Container = styled.div`
   padding: 1.5em;
   border-radius: 0.8em;
   background: linear-gradient(40deg, var(--secondary-color), 40%, white);
+  h1 {
+    width: fit-content;
+    align-self: center;
+    background: linear-gradient(
+      45deg,
+      var(--secondary-color),
+      var(--primary-color)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 `;
 const FormBox = styled.div`
   border-radius: 0.3em;
