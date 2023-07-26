@@ -6,15 +6,15 @@ import Content from "./Content";
 function Index() {
   const [selectedCalculator, setSelectedCalclulator] = useState();
   return (
-    <div>
+    <Page>
       <NavBar
         calculator={(selectedCalculator) =>
           setSelectedCalclulator(selectedCalculator)
         }
       />
       <Content calculator={selectedCalculator} />
-    </div>
+    </Page>
   );
 }
-
+const Page = styled.div``;
 export default Index;

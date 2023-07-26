@@ -13,9 +13,9 @@ export default function Accordion(props) {
     </AccordionSelector>
    <FormContainer > 
         <Label >{props.lbl1}</Label> 
-        <FormInput   type="number" width={"5em"} height={"1.2em"} min={0} placeholder="0" onChange={e=>(props.vFunk(e.target.value))}/> 
+        <FormInput   type="number" width={"5em"} height={"1.2em"} min={0} placeholder="0" value={props.value} onChange={e=> props.vFunk(e.target.value)}/> 
         <Label  >{props.lbl2}</Label> 
-        <select onChange={e=>(props.uFunk(e.target.value))} > 
+        <select onChange={e=>(props.uFunk(e.target.value))} value={props.u}> 
             {
                 props.opts.map((unit)=>( 
                     <option value={unit} key={unit}>
@@ -23,7 +23,7 @@ export default function Accordion(props) {
                     </option>
                 ))
             }  
-            </select>
+            </select> 
    </FormContainer> 
     </Container>
    
