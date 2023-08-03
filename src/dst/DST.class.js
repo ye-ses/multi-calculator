@@ -1,6 +1,6 @@
 import { PureComponent } from "react";
 
-export default class DST {
+export default class DST  {
   constructor() {
     this.speed = 0;
     this.distance = 0;
@@ -8,6 +8,26 @@ export default class DST {
     this.sUnit = "m/s";
     this.dUnit = "m";
     this.tUnit = "sec";
+    this.speedCheck = false;
+    this.distanceCheck = false;
+    this.timeCheck = false;
+  }
+  resetValues(){ 
+    this.speed = 0;
+    this.distance = 0;
+    this.time = 0;
+    this.sUnit = "m/s";
+    this.dUnit = "m";
+    this.tUnit = "sec";
+  }
+  setSpeedCheck(speedCheck){
+    this.speedCheck = speedCheck;
+  }
+  setDistanceCheck(distanceCheck){
+    this.distanceCheck = distanceCheck; 
+  }
+  setTimeCheck(timeCheck){
+    this.timeCheck = timeCheck; 
   }
   convertSpeed(speed, sUnit) {
     if (speed === 0) {
@@ -15,13 +35,13 @@ export default class DST {
     }
     switch (sUnit) {
       case "m/s":
-        this.speed = speed;
+        this.speed = parseFloat((speed).toFixed(3));
         break;
       case "km/h":
-        this.speed = speed / 3.6;
+        this.speed = parseFloat((speed / 3.6).toFixed(3));
         break;
       case "mi/h":
-        this.speed = speed / 2.237;
+        this.speed = parseFloat((speed / 2.237).toFixed(3));
         break;
     }
   }
@@ -94,24 +114,18 @@ export default class DST {
       this.calculateSpeed();
     }
   }
-  calculateTime() {
-    if (this.distance == 0 || this.speed == 0) {
-      this.time = 0;
-    } else {
+  calculateTime() {  
+      if(this.timeCheck){
       this.time = parseFloat((this.distance / this.speed).toFixed(3));
     }
   }
-  calculateSpeed() {
-    if (this.distance == 0 || this.time == 0) {
-      this.speed = 0;
-    } else {
+  calculateSpeed() { 
+      if(this.speedCheck){
       this.speed = parseFloat((this.distance / this.time).toFixed(3));
     }
   }
-  calculateDistance() {
-    if (this.time == 0 || this.speed == 0) {
-      this.distance = 0;
-    } else {
+  calculateDistance() { 
+      if(this.distanceCheck){
       this.distance = parseFloat((this.time * this.speed).toFixed(3));
     }
   }

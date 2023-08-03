@@ -38,6 +38,7 @@ const Container = styled.div`
   }
   @media (max-width: 1000px) {
     grid-template-columns: 1fr;
+    padding:2em 1em;
     .thanks {
       display: block;
     }

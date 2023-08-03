@@ -65,5 +65,17 @@ const Container = styled.div`
   @media (max-width: 500px) {
     flex-direction: column-reverse;
   }
+  @media (max-width: 400px) { 
+    font-size: 90%;
+  }
+  @media (max-width: 320px) { 
+    font-size: 75%;
+  }
+  @media (max-width: 300px) { 
+    font-size: 70%;
+  }
+  @media (max-width: 250px) { 
+    font-size: 60%;
+  }
 `;
 export default CalculatorWidget;

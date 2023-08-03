@@ -3,8 +3,7 @@ import { BsChevronDown } from "react-icons/bs";
 import { useState } from "react";
 import { FormInput, Label } from "../inputs";
 
-export default function Accordion(props) {
-    const[svgClass,setSvgClass] = useState("up");
+export default function Accordion(props) { 
   return (  
     <Container>
  <AccordionSelector>
@@ -13,7 +12,7 @@ export default function Accordion(props) {
     </AccordionSelector>
    <FormContainer > 
         <Label >{props.lbl1}</Label> 
-        <FormInput   type="number" width={"5em"} height={"1.2em"} min={0} placeholder="0" value={props.value} onChange={e=> props.vFunk(e.target.value)}/> 
+        <FormInput   type="number" width={"5em"} height={"1.2em"} min={"0"}  value={props.value} onChange={e=> props.vFunk(e.target.value)}/> 
         <Label  >{props.lbl2}</Label> 
         <select onChange={e=>(props.uFunk(e.target.value))} value={props.u}> 
             {
@@ -34,12 +33,15 @@ const Container = styled.div`
         display:none;
         transition: 0.3s;
     }
+    @media (max-width: 500px) {
+    font-size: 90%;  
+  }
 `
 const FormContainer = styled.div`
 display:grid; 
 grid-template-columns: 1fr 0.2fr; 
 gap:.8em;
-min-width:20em;
+min-width:15em;
 color:rgba(24,24,24,0.5);
 background-color: white; 
 border-radius: 0 0 .8em .8em ;
@@ -61,8 +63,21 @@ select{
       text-align: center;
       font-size: 0.9em;
     }
-} 
-
+}  
+@media (max-width: 420px) { 
+    gap: .2em;
+    grid-template-columns: 1fr;
+  }
+@media (max-width: 330px) { 
+    font-size: 100%;
+    gap: .2em;
+    grid-template-columns: 1fr;
+  }
+ 
+@media (max-width: 200px) {
+    font-size: 80%;  
+    gap: .1em;
+  }
 `
 const AccordionSelector = styled.div`
     display:flex;
