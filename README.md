@@ -26,5 +26,5 @@ the converter then converts the distance to all the mentioned units at once and 
 -
 this calculator asks the user what they want to calculate in the form of radio buttons and when one is selected,
 fields to enter the requred values are presented, i.e. when speed is selected,
-distance fields and time fields are presented for the user to enter values
+distance fields and time fields are presented for the user to enter values.
 
