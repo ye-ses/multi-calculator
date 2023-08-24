@@ -1,6 +1,6 @@
 import { PureComponent } from "react";
 
-export default class DST  {
+export default class DST {
   constructor() {
     this.speed = 0;
     this.distance = 0;
@@ -12,7 +12,7 @@ export default class DST  {
     this.distanceCheck = false;
     this.timeCheck = false;
   }
-  resetValues(){ 
+  resetValues() {
     this.speed = 0;
     this.distance = 0;
     this.time = 0;
@@ -20,14 +20,14 @@ export default class DST  {
     this.dUnit = "m";
     this.tUnit = "sec";
   }
-  setSpeedCheck(speedCheck){
+  setSpeedCheck(speedCheck) {
     this.speedCheck = speedCheck;
   }
-  setDistanceCheck(distanceCheck){
-    this.distanceCheck = distanceCheck; 
+  setDistanceCheck(distanceCheck) {
+    this.distanceCheck = distanceCheck;
   }
-  setTimeCheck(timeCheck){
-    this.timeCheck = timeCheck; 
+  setTimeCheck(timeCheck) {
+    this.timeCheck = timeCheck;
   }
   convertSpeed(speed, sUnit) {
     if (speed === 0) {
@@ -35,7 +35,7 @@ export default class DST  {
     }
     switch (sUnit) {
       case "m/s":
-        this.speed = parseFloat((speed).toFixed(3));
+        this.speed = parseFloat(speed.toFixed(3));
         break;
       case "km/h":
         this.speed = parseFloat((speed / 3.6).toFixed(3));
@@ -114,18 +114,18 @@ export default class DST  {
       this.calculateSpeed();
     }
   }
-  calculateTime() {  
-      if(this.timeCheck){
+  calculateTime() {
+    if (this.timeCheck && this.speed != 0 && this.distance != 0) {
       this.time = parseFloat((this.distance / this.speed).toFixed(3));
     }
   }
-  calculateSpeed() { 
-      if(this.speedCheck){
+  calculateSpeed() {
+    if (this.speedCheck && this.time != 0 && this.distance != 0) {
       this.speed = parseFloat((this.distance / this.time).toFixed(3));
     }
   }
-  calculateDistance() { 
-      if(this.distanceCheck){
+  calculateDistance() {
+    if (this.distanceCheck && this.speed != 0 && this.time != 0) {
       this.distance = parseFloat((this.time * this.speed).toFixed(3));
     }
   }
