@@ -18,8 +18,7 @@ class Calculator {
     this.answerOn = false;
     this.answer = "0";
   }
-  looseOperator() {
-    const key = this.textBox.value.slice(-1);
+  looseOperator(key) {
     if (
       key == "+" ||
       key == "-" ||
@@ -60,17 +59,11 @@ class Calculator {
         if (this.answerOn) {
           this.answerOn = false;
         }
-        if (this.textBox.value !== "") {
-          if (button.id === "equal") {
-            this.evaluate();
-          } else {
-            if (this.answerOn) {
-              this.answerOn = false;
-            }
-            this.writeOperator(button);
-            this.period = !this.period;
-          }
+        if (button.id === "equal") {
+          this.evaluate();
         }
+        this.writeOperator(button);
+        this.period = true;
         break;
       default:
         break;
@@ -78,7 +71,11 @@ class Calculator {
   }
   writeBrackets() {
     const key = this.textBox.value.slice(-1);
-    if (!this.looseOperator()) {
+    if (key == "" || key == undefined) {
+      this.textBox.value += "(";
+      this.bracket = !this.bracket;
+    }
+    if (!this.looseOperator(key)) {
       this.textBox.value += this.bracket ? "*(" : ")";
       this.bracket = !this.bracket;
     }
@@ -91,7 +88,7 @@ class Calculator {
       if (button.value === "+/-") {
         this.textBox.value += "-";
       } else {
-        if (
+        if ((
           button.value !== "=" &&
           key !== ")" &&
           key !== "+" &&
@@ -100,7 +97,7 @@ class Calculator {
           key !== "(" &&
           key !== "*" &&
           key !== ""
-        ) {
+        ) && (this.textBox.value !== "")) {
           if (button.value === "%") {
             if (key !== "%") {
               this.textBox.value += button.value;
@@ -126,14 +123,14 @@ class Calculator {
       }
     }
   }
-  toggleBrackets() {
-    const value = this.bracket ? "(" : ")";
-    this.textBox.value += value;
-    this.bracket = !this.bracket;
-  }
+  // toggleBrackets() {
+  //   const value = this.bracket ? "(" : ")";
+  //   this.textBox.value += value;
+  //   this.bracket = !this.bracket;
+  // }
   evaluate() {
     const key = this.textBox.value.slice(-1);
-    if (this.looseOperator()) {
+    if (this.looseOperator(key) || !this.bracket) {
       return;
     }
     const expression = this.textBox.value;

@@ -36,7 +36,7 @@ function NavBar(props) {
                   document.getElementById("right").scrollIntoView();
                 }}
               >
-                Tiny Calculator
+                basic Calculator
               </TextTag>
               <TextTag
                 onClick={() => {
